@@ -49,6 +49,31 @@ body{font-family:'Heebo',sans-serif;background:linear-gradient(135deg,var(--dark
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 .page{display:none}
 .page.active{display:block}
+.back-home-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.85rem 1.4rem;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--turquoise),var(--purple));
+  color:white;
+  font-family:'Heebo',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(92,225,230,0.25);
+  transition:transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  margin-bottom:1.5rem;
+}
+.back-home-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(92,225,230,0.35);
+}
+.back-home-wrap{
+  max-width:1200px;
+  margin:0 auto 1rem;
+}
 @media (max-width:768px){
   .features-grid{grid-template-columns:1fr;gap:1rem}
   .comparison-grid{grid-template-columns:1fr}
@@ -110,7 +135,7 @@ D['soft-hover']={t:'Soft Hover',s:'אינטראקציה עדינה',h:'<div clas
 D['number-counter']={t:'Number Counter',s:'ספירה',h:'<div class="demo-box" style="background:rgba(92,225,230,0.1);padding:3rem"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center"><div><div class="cnt" data-t="15000" style="font-size:3.5rem;font-weight:800;color:var(--turquoise)">0</div><div>לומדים</div></div><div><div class="cnt" data-t="250" style="font-size:3.5rem;font-weight:800;color:var(--pink)">0</div><div>שעות</div></div><div><div class="cnt" data-t="98" style="font-size:3.5rem;font-weight:800;color:var(--purple)">0</div><div>%</div></div></div></div><div class="info-section"><h3>תכונות</h3><ul><li>2 שניות</li><li>Ease-out</li></ul></div>',i:()=>{setTimeout(()=>{document.querySelectorAll('.cnt').forEach(e=>{const t=parseInt(e.getAttribute('data-t')),d=2000,st=performance.now();function u(ct){const el=ct-st,pr=Math.min(el/d,1),ep=1-Math.pow(1-pr,3);e.textContent=Math.floor(ep*t).toLocaleString('he-IL');if(pr<1)requestAnimationFrame(u)}requestAnimationFrame(u)})},500)}};
 D['magnetic-cta']={t:'Magnetic CTA',s:'כפתור מגנטי',h:'<div class="demo-box" style="min-height:350px"><div style="text-align:center"><p style="margin-bottom:1.5rem">קרב עכבר</p><button id="mb" style="padding:1.1rem 2.75rem;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#5ce1e6,#ff66c4);border:none;border-radius:100px;color:white;cursor:pointer">לחץ! 🚀</button></div></div><div class="info-section"><h3>תכונות</h3><ul><li>רדיוס 100px</li><li>עוצמה 40%</li></ul></div>',i:()=>{const b=document.getElementById('mb');if(!b)return;b.onmousemove=e=>{const r=b.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,d=Math.sqrt(dx*dx+dy*dy);if(d<100){b.style.transform=`translate(${dx*0.4}px,${dy*0.4}px)`;b.style.transition='none'}};b.onmouseleave=()=>{b.style.transform='';b.style.transition='transform 0.3s'}}};
 D['glass-card']={t:'Glass Card',s:'זכוכית',h:'<div class="comparison-grid"><div class="comparison-item"><h3>❌ רגיל</h3><div class="demo-box" style="background:linear-gradient(135deg,#5ce1e6,#8c52ff);padding:0"><div style="background:rgba(10,0,51,0.9);padding:1.75rem;border-radius:14px;color:white"><h4>כרטיס</h4><p style="opacity:0.8">רקע אטום</p></div></div></div><div class="comparison-item"><h3>✅ Glass</h3><div class="demo-box" style="background:linear-gradient(135deg,#ff66c4,#8c52ff);padding:0"><div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(16px);padding:1.75rem;border-radius:14px;color:white;border:1px solid rgba(255,255,255,0.2);box-shadow:0 8px 32px rgba(0,0,0,0.3)"><h4>Glass</h4><p>שקיפות</p></div></div></div></div><div class="info-section"><h3>מרכיבים</h3><ul><li>שקיפות</li><li>blur</li></ul></div>'};
-D['floating-popup']={t:'Popup',s:'הודעה',h:'<div class="demo-box" style="position:relative;min-height:350px;background:linear-gradient(135deg,rgba(10,0,51,0.5),rgba(26,10,77,0.5))"><div style="text-align:center;color:rgba(255,255,255,0.6)"><p>הודעה בעוד...</p><div id="pt" style="font-size:2.5rem;font-weight:800;color:var(--turquoise)">3</div></div><div id="fp" style="position:absolute;bottom:25px;left:25px;background:rgba(255,255,255,0.95);border-radius:18px;padding:1.75rem;width:300px;box-shadow:0 20px 60px rgba(0,0,0,0.3);transform:translateY(20px);opacity:0;transition:all 0.4s"><button onclick="document.getElementById(\'fp\').style.opacity=\'0\'" style="position:absolute;top:8px;left:8px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#666">×</button><h4 style="color:#0a0033">🎉 מבצע!</h4><p style="color:#666;font-size:0.95rem">20% הנחה</p><button style="width:100%;padding:0.75rem;background:linear-gradient(135deg,#5ce1e6,#8c52ff);border:none;border-radius:50px;color:white;font-weight:600">לחץ</button></div></div><div class="info-section"><h3>תכונות</h3><ul><li>מופיע אחרי 35 שניות</li><li>סגירה אוטומטית</li></ul></div>',i:()=>{let c=3;const t=document.getElementById('pt'),p=document.getElementById('fp'),i=setInterval(()=>{c--;if(t)t.textContent=c;if(c===0){clearInterval(i);setTimeout(()=>{if(p){p.style.transform='translateY(0)';p.style.opacity='1'}},200)}},1000)}};
+D['floating-popup']={t:'Popup',s:'הודעה',h:'<div class="demo-box" style="position:relative;min-height:350px;background:linear-gradient(135deg,rgba(10,0,51,0.5),rgba(26,10,77,0.5))"><div style="text-align:center;color:rgba(255,255,255,0.6)"><p>הודעה בעוד...</p><div id="pt" style="font-size:2.5rem;font-weight:800;color:var(--turquoise)">3</div></div><div id="fp" style="position:absolute;bottom:25px;left:25px;background:rgba(255,255,255,0.95);border-radius:18px;padding:1.75rem;width:300px;box-shadow:0 20px 60px rgba(0,0,0,0.3);transform:translateY(20px);opacity:0;transition:all 0.4s"><button onclick="document.getElementById(\'fp\').style.opacity=\'0\'" style="position:absolute;top:8px;left:8px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#666">×</button><h4 style="color:#0a0033">🎉 מבצע!</h4><p style="color:#666;font-size:0.95rem">20% הנחה</p><button style="width:100%;padding:0.75rem;background:linear-gradient(135deg,#5ce1e6,#8c52ff);border:none;border-radius:50px;color:white;font-weight:600">לחץ</button></div></div><div class="info-section"><h3>תכונות</h3><ul><li>מופיע אחרי 3 שניות</li><li>סגירה אוטומטית</li></ul></div>',i:()=>{let c=3;const t=document.getElementById('pt'),p=document.getElementById('fp'),i=setInterval(()=>{c--;if(t)t.textContent=c;if(c===0){clearInterval(i);setTimeout(()=>{if(p){p.style.transform='translateY(0)';p.style.opacity='1'}},200)}},1000)}};
 D['hero-focus']={t:'Hero Focus',s:'היררכיה',h:'<div class="comparison-grid"><div class="comparison-item"><h3>❌ לפני</h3><div class="demo-box" style="background:rgba(10,0,51,0.3);padding:2rem;flex-direction:column;align-items:flex-start"><h2 style="font-size:1.5rem">כותרת</h2><p style="font-size:0.95rem;opacity:0.7">טקסט</p><button style="padding:0.6rem 1.5rem;background:#666;border:none;border-radius:8px;color:white">לחצן</button></div></div><div class="comparison-item"><h3>✅ אחרי</h3><div class="demo-box" style="background:linear-gradient(135deg,rgba(92,225,230,0.15),rgba(140,82,255,0.15));padding:2rem;flex-direction:column;align-items:flex-start"><h2 style="font-size:2rem;font-weight:800;background:linear-gradient(135deg,#5ce1e6,#ff66c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent">כותרת בולטת</h2><p style="font-size:1.1rem">טקסט</p><button style="padding:0.875rem 2rem;background:linear-gradient(135deg,#5ce1e6,#8c52ff);border:none;border-radius:50px;color:white;font-weight:600">לחצן</button></div></div></div><div class="info-section"><h3>שיפורים</h3><ul><li>כותרת בולטת</li><li>CTA בולט</li></ul></div>'};
 D['horizontal-scroll']={t:'Horizontal',s:'גלילה',h:'<div class="demo-box" style="padding:0;overflow:hidden"><div style="display:flex;gap:1.25rem;overflow-x:auto;padding:2rem"><div style="min-width:220px;height:280px;background:linear-gradient(135deg,#5ce1e6,#0a0033);border-radius:18px;padding:1.75rem;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white"><div style="font-size:3rem">🎨</div><h4>כרטיס 1</h4></div><div style="min-width:220px;height:280px;background:linear-gradient(135deg,#ff66c4,#0a0033);border-radius:18px;padding:1.75rem;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white"><div style="font-size:3rem">🚀</div><h4>כרטיס 2</h4></div><div style="min-width:220px;height:280px;background:linear-gradient(135deg,#8c52ff,#0a0033);border-radius:18px;padding:1.75rem;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white"><div style="font-size:3rem">💡</div><h4>כרטיס 3</h4></div><div style="min-width:220px;height:280px;background:linear-gradient(135deg,#5ce1e6,#0a0033);border-radius:18px;padding:1.75rem;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white"><div style="font-size:3rem">✨</div><h4>כרטיס 4</h4></div></div></div><div class="info-section"><h3>תכונות</h3><ul><li>גלילה חלקה</li><li>תמיכה במגע</li></ul></div>'};
 D['hotspot-pulse']={t:'Hotspot',s:'נקודות',h:'<div class="demo-box" style="position:relative;background:linear-gradient(135deg,#5ce1e6,#8c52ff);min-height:350px"><div class="hotspot" style="position:absolute;left:25%;top:30%"><div style="width:14px;height:14px;background:white;border-radius:50%;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3)"><div style="position:absolute;inset:-8px;border:2px solid white;border-radius:50%;animation:pulseRipple 2s infinite"></div><div class="hotspot-tip" style="position:absolute;bottom:25px;left:50%;transform:translateX(-50%);background:white;color:#0a0033;padding:0.75rem 1.25rem;border-radius:12px;opacity:0;transition:opacity 0.3s;box-shadow:0 8px 24px rgba(0,0,0,0.2);font-weight:600">פיצ\'ר 1</div></div></div><div class="hotspot" style="position:absolute;left:65%;top:25%"><div style="width:14px;height:14px;background:white;border-radius:50%;cursor:pointer"><div style="position:absolute;inset:-8px;border:2px solid white;border-radius:50%;animation:pulseRipple 2s infinite;animation-delay:0.3s"></div><div class="hotspot-tip" style="position:absolute;bottom:25px;left:50%;transform:translateX(-50%);background:white;color:#0a0033;padding:0.75rem 1.25rem;border-radius:12px;opacity:0;transition:opacity 0.3s;box-shadow:0 8px 24px rgba(0,0,0,0.2);font-weight:600">פיצ\'ר 2</div></div></div></div><div class="info-section"><h3>תכונות</h3><ul><li>pulse אנימציה</li><li>טיפים</li></ul></div>'};
@@ -132,11 +157,26 @@ function showHome(){
 }
 
 function showDemo(id){
-  const d=D[id];
-  if(!d){alert('בבנייה 🚧');return}
+  const d = D[id];
+  if(!d){
+    alert('בבנייה 🚧');
+    return;
+  }
+
   document.getElementById('home-page').classList.remove('active');
-  document.getElementById('demo-pages').innerHTML='<div class="demo-page active"><div class="demo-header"><h2>'+d.t+'</h2><p class="subtitle">'+d.s+'</p></div><div class="demo-content">'+d.h+'</div></div>';
-  if(d.i)setTimeout(d.i,100);
+  document.getElementById('demo-pages').innerHTML =
+    '<div class="demo-page active">' +
+      '<div class="back-home-wrap">' +
+        '<button class="back-home-btn" onclick="showHome()">← חזרה לעמוד הבית</button>' +
+      '</div>' +
+      '<div class="demo-header">' +
+        '<h2>' + d.t + '</h2>' +
+        '<p class="subtitle">' + d.s + '</p>' +
+      '</div>' +
+      '<div class="demo-content">' + d.h + '</div>' +
+    '</div>';
+
+  if(d.i) setTimeout(d.i,100);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
